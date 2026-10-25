@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oh Yeah Creative Studio</title>
+<meta name="description" content="Oh Yeah Creative is the studio of Rachel Olsen, working across branding, art direction, web design, and packaging for clients across industries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f3ede3;
+    --surface:#faf6ef;
+    --surface-2:#efe7da;
+    --ink:#1c1916;
+    --ink-soft:#4a433c;
+    --muted:#8a8075;
+    --clay:#bd5b3b;
+    --clay-deep:#9c4529;
+    --sage:#6c7152;
+    --line:rgba(28,25,22,0.12);
+    --line-strong:rgba(28,25,22,0.22);
+    --shadow:0 18px 50px -24px rgba(28,25,22,0.45);
+    --radius:18px;
+    --maxw:1180px;
+    --serif:"Fraunces",Georgia,"Times New Roman",serif;
+    --sans:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{
+    font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--clay-deep);display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--clay)}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(243,237,227,0.82);
+    backdrop-filter:saturate(1.2) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:600}
+  .brand .mark{font-size:20px;letter-spacing:.18em}
+  .brand .word{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);font-family:var(--sans);font-weight:600}
+  nav.links{display:flex;align-items:center;gap:30px}
+  nav.links a{font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s}
+  nav.links a:hover{color:var(--clay-deep)}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    padding:12px 22px;border-radius:999px;border:1px solid var(--ink);
+    background:var(--ink);color:var(--surface);transition:transform .18s ease,background .2s,color .2s;
+  }
+  .btn:hover{transform:translateY(-2px);background:var(--clay-deep);border-color:var(--clay-deep);color:#fff}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+  .btn.ghost:hover{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+  .btn .arrow{font-family:var(--serif)}
+
+  /* HERO */
+  .hero{position:relative;padding:92px 0 74px}
+  .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(42px,6.2vw,80px);line-height:1.02;letter-spacing:-0.01em;margin:22px 0 0;
+  }
+  .hero h1 em{font-style:italic;color:var(--clay-deep)}
+  .hero p.lede{font-size:clamp(16px,2.1vw,20px);color:var(--ink-soft);max-width:34ch;margin-top:24px}
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .hero-note{margin-top:30px;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:10px}
+  .hero-note b{color:var(--ink);font-weight:600}
+
+  /* HERO collage */
+  .collage{position:relative;height:460px}
+  .tile{position:absolute;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.35)}
+  .tile .label{position:absolute;left:14px;bottom:12px;font-family:var(--serif);color:#fff;font-size:15px;letter-spacing:.04em;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+  .tile .cat{position:absolute;left:14px;top:13px;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+  .t1{width:62%;height:64%;left:0;top:0;background:
+      radial-gradient(120% 120% at 20% 10%,rgba(255,255,255,.22),transparent 55%),
+      linear-gradient(145deg,#b86a4c,#8f3f28)}
+  .t2{width:46%;height:44%;right:0;top:12%;background:
+      radial-gradient(120% 120% at 80% 20%,rgba(255,255,255,.18),transparent 55%),
+      linear-gradient(160deg,#747a57,#515636)}
+  .t3{width:52%;height:42%;right:4%;bottom:0;background:
+      radial-gradient(120% 120% at 30% 80%,rgba(255,255,255,.2),transparent 55%),
+      linear-gradient(150deg,#d9c3a6,#b79a74)}
+  .t3 .label,.t3 .cat{color:#3a3024;text-shadow:none}
+
+  /* marquee / expertise strip */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface-2)}
+  .strip .row{display:flex;flex-wrap:wrap;gap:12px 34px;align-items:center;justify-content:center;padding:18px 24px}
+  .strip span{font-family:var(--serif);font-size:clamp(15px,2vw,20px);color:var(--ink-soft)}
+  .strip .dot{color:var(--clay);font-size:10px}
+
+  /* section shell */
+  section.block{padding:84px 0}
+  .head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+  .head h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4.2vw,46px);line-height:1.05;letter-spacing:-0.01em;max-width:16ch}
+  .head p{color:var(--ink-soft);max-width:40ch;font-size:16px}
+
+  /* services */
+  .services{background:var(--ink);color:var(--surface)}
+  .services .eyebrow{color:#e8a98e}
+  .services .eyebrow::before{background:#e8a98e}
+  .services .head h2{color:var(--surface)}
+  .services .head p{color:rgba(250,246,239,.72)}
+  .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:rgba(250,246,239,.14);border:1px solid rgba(250,246,239,.14);border-radius:var(--radius);overflow:hidden}
+  .svc{background:var(--ink);padding:30px 26px 34px;display:flex;flex-direction:column;gap:12px;min-height:220px;transition:background .25s}
+  .svc:hover{background:#2a2620}
+  .svc .num{font-family:var(--serif);font-size:13px;color:#e8a98e;letter-spacing:.08em}
+  .svc h3{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:.01em}
+  .svc p{font-size:14.5px;color:rgba(250,246,239,.72);line-height:1.6}
+
+  /* work grid */
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .25s ease,border-color .2s}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--line-strong)}
+  .cover{position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+  .cover .mono{font-family:var(--serif);font-size:46px;color:rgba(255,255,255,.92);letter-spacing:.02em;text-shadow:0 2px 14px rgba(0,0,0,.28)}
+  .cover .tag{position:absolute;top:13px;left:14px;font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.92);background:rgba(0,0,0,.18);padding:5px 10px;border-radius:999px;backdrop-filter:blur(2px)}
+  .cover.soon .tag{background:rgba(0,0,0,.28)}
+  .badge-soon{position:absolute;right:14px;top:13px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.7);padding:5px 10px;border-radius:999px}
+  .cv-clay{background:radial-gradient(120% 120% at 25% 15%,rgba(255,255,255,.22),transparent 55%),linear-gradient(150deg,#c0633f,#8f3f28)}
+  .cv-sage{background:radial-gradient(120% 120% at 75% 20%,rgba(255,255,255,.18),transparent 55%),linear-gradient(155deg,#767b58,#4f5435)}
+  .cv-sand{background:radial-gradient(120% 120% at 30% 80%,rgba(255,255,255,.22),transparent 55%),linear-gradient(150deg,#d7bf9f,#b1926b)}
+  .cv-sand .mono{color:#4a3c2c;text-shadow:none}
+  .cv-ink{background:radial-gradient(120% 120% at 70% 15%,rgba(255,255,255,.1),transparent 55%),linear-gradient(150deg,#39342d,#1f1b16)}
+  .cv-rose{background:radial-gradient(120% 120% at 30% 20%,rgba(255,255,255,.2),transparent 55%),linear-gradient(150deg,#c17a6b,#9c5244)}
+  .cv-olive{background:radial-gradient(120% 120% at 70% 80%,rgba(255,255,255,.16),transparent 55%),linear-gradient(150deg,#8a8a5c,#5e5e38)}
+  .card .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card .cat{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--clay-deep)}
+  .card h3{font-family:var(--serif);font-weight:500;font-size:21px;letter-spacing:.01em}
+  .card p{font-size:14.5px;color:var(--ink-soft)}
+  .card p.structural{color:var(--muted);font-style:italic}
+  .card .info{margin-top:auto;padding-top:14px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);display:inline-flex;align-items:center;gap:8px}
+  .card .info .arrow{font-family:var(--serif);transition:transform .2s}
+  .card:hover .info .arrow{transform:translateX(5px)}
+
+  /* about */
+  .about .inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .about .portrait{aspect-ratio:4/5;border-radius:var(--radius);background:
+      radial-gradient(120% 120% at 25% 15%,rgba(255,255,255,.3),transparent 55%),
+      linear-gradient(160deg,#cdb79a,#9d8259);
+      position:relative;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.4);display:flex;align-items:flex-end;padding:26px}
+  .about .portrait .sig{font-family:var(--serif);font-style:italic;font-size:26px;color:#453827}
+  .about h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-0.01em}
+  .about p.big{font-size:17px;color:var(--ink-soft);margin-top:20px}
+  .disciplines{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .chip{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line-strong);padding:8px 14px;border-radius:999px}
+
+  /* contact band */
+  .contact{background:var(--surface-2);border-top:1px solid var(--line)}
+  .contact .inner{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;padding:72px 0}
+  .contact h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4.6vw,52px);line-height:1.04;letter-spacing:-0.01em;max-width:14ch}
+  .contact .side{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+  .contact a.mail{font-family:var(--serif);font-size:clamp(18px,2.4vw,26px);color:var(--clay-deep);border-bottom:1px solid var(--clay);padding-bottom:3px}
+  .contact .socials{display:flex;gap:18px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* footer */
+  footer.site{background:var(--ink);color:var(--surface);padding:54px 0 40px}
+  footer.site .top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  footer.site .brand .mark{color:var(--surface)}
+  footer.site .brand .word{color:rgba(250,246,239,.7)}
+  footer.site nav{display:flex;gap:26px;flex-wrap:wrap}
+  footer.site nav a{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,246,239,.78)}
+  footer.site nav a:hover{color:#e8a98e}
+  footer.site .rule{height:1px;background:rgba(250,246,239,.16);margin:34px 0 20px}
+  footer.site .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:rgba(250,246,239,.6);letter-spacing:.04em}
+
+  /* responsive */
+  @media (max-width:980px){
+    .hero .grid{grid-template-columns:1fr;gap:40px}
+    .collage{height:380px;max-width:520px}
+    .about .inner{grid-template-columns:1fr;gap:34px}
+    .about .portrait{max-width:420px}
+    .work-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:720px){
+    nav.links{display:none}
+    .hero{padding:60px 0 54px}
+    section.block{padding:60px 0}
+    .work-grid{grid-template-columns:1fr}
+    .collage{height:340px}
+    .contact .inner{padding:54px 0}
+  }
+  @media (max-width:420px){
+    .wrap{padding:0 18px}
+    .brand .word{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Oh Yeah Creative home">
+      <span class="mark">( O Y C )</span>
+      <span class="word">Oh Yeah Creative</span>
+    </a>
+    <nav class="links">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="mailto:rachel@ohyeahcreative.com">Start a project <span class="arrow">&rsaquo;</span></a>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Creative Studio, led by Rachel Olsen</span>
+      <h1>We turn conceptual visions into <em>tangible</em> brands.</h1>
+      <p class="lede">Oh Yeah Creative is a multi-disciplinary studio working across branding, art direction, web design, and packaging for clients across industries.</p>
+      <div class="cta-row">
+        <a class="btn" href="#work">View the work <span class="arrow">&rsaquo;</span></a>
+        <a class="btn ghost" href="mailto:rachel@ohyeahcreative.com">Start a project</a>
+      </div>
+      <div class="hero-note"><b>Branding.</b> Art direction. Web. Packaging. Crafted with precision.</div>
+    </div>
+    <div class="collage" aria-hidden="true">
+      <div class="tile t1"><span class="cat">Identity, Print</span><span class="label">Uptown Pa'ia</span></div>
+      <div class="tile t2"><span class="cat">Package Design</span><span class="label">Creative Bath</span></div>
+      <div class="tile t3"><span class="cat">Web Design</span><span class="label">Close Design</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="row">
+    <span>Art Direction</span><span class="dot">&#9679;</span>
+    <span>Brand Identity</span><span class="dot">&#9679;</span>
+    <span>Web Design &amp; Development</span><span class="dot">&#9679;</span>
+    <span>Package Design</span><span class="dot">&#9679;</span>
+    <span>Print &amp; Digital Design</span>
+  </div>
+</div>
+
+<section class="block services" id="services">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="eyebrow">What we do</span>
+        <h2>A full creative toolkit, under one studio.</h2>
+      </div>
+      <p>A multi-disciplinary approach that crafts each project with precision to evoke impactful visual identities.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <span class="num">01</span>
+        <h3>Art Direction</h3>
+        <p>Visual concepts and on-set art direction across marketing, editorial, e-commerce, website, and video content projects.</p>
+      </div>
+      <div class="svc">
+        <span class="num">02</span>
+        <h3>Brand Identities</h3>
+        <p>Creating cohesive brand identities, encompassing research, strategic positioning, brand guidelines, and implementation.</p>
+      </div>
+      <div class="svc">
+        <span class="num">03</span>
+        <h3>Web Design &amp; Development</h3>
+        <p>Developing innovative designs for websites and e-commerce platforms, infused with strategic thinking, ensuring responsiveness and accessibility.</p>
+      </div>
+      <div class="svc">
+        <span class="num">04</span>
+        <h3>Digital Design</h3>
+        <p>Thoughtfully designed social media graphics, newsletters, and user interfaces with a focus on user experience.</p>
+      </div>
+      <div class="svc">
+        <span class="num">05</span>
+        <h3>Packaging Design</h3>
+        <p>Drafting, research, and design for custom packaging that carries the brand onto the shelf.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="eyebrow">Selected work</span>
+        <h2>Projects crafted into impactful visual identities.</h2>
+      </div>
+      <p>A sample of recent studio work across identity, packaging, web, and campaigns.</p>
+    </div>
+    <div class="work-grid">
+
+      <article class="card">
+        <div class="cover cv-clay"><span class="tag">Identity, Print Design</span><span class="mono">UP</span></div>
+        <div class="body">
+          <span class="cat">Identity, Print Design</span>
+          <h3>Uptown</h3>
+          <p>Tropical environment and vintage architecture meet in the visual identity for multifaceted space Uptown Pa'ia.</p>
+          <span class="info">Case study <span class="arrow">&rsaquo;</span></span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover cv-sage"><span class="tag">Identity, Package Design</span><span class="mono">CB</span></div>
+        <div class="body">
+          <span class="cat">Identity, Package Design</span>
+          <h3>Creative Bath Design</h3>
+          <p>Energetic package design for a wellness line crafted with CBD benefits as the focus.</p>
+          <span class="info">Case study <span class="arrow">&rsaquo;</span></span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover cv-sand"><span class="tag">Web, Creative Direction</span><span class="mono">KL</span></div>
+        <div class="body">
+          <span class="cat">Web Design, Creative Direction</span>
+          <h3>Kenneth Lofton Jr</h3>
+          <p>A dynamic and adaptive website for a young athlete, embodying the game and the path to professional success.</p>
+          <span class="info">Case study <span class="arrow">&rsaquo;</span></span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover cv-rose"><span class="tag">Digital Content, Campaigns</span><span class="mono">VK</span></div>
+        <div class="body">
+          <span class="cat">Digital Content, Campaigns</span>
+          <h3>Virk</h3>
+          <p>Engaging campaigns for a new social media platform connecting eager food enthusiasts with talented local chefs.</p>
+          <span class="info">Case study <span class="arrow">&rsaquo;</span></span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover cv-ink"><span class="tag">Web, Creative Direction</span><span class="mono">CD</span></div>
+        <div class="body">
+          <span class="cat">Web Design, Creative Direction</span>
+          <h3>Close Design</h3>
+          <p>A fresh website for an interior design studio, featuring a carefully curated art decor shop and lifestyle brand.</p>
+          <span class="info">Case study <span class="arrow">&rsaquo;</span></span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover cv-olive"><span class="tag">Identity, Package Design</span><span class="mono">ML</span></div>
+        <div class="body">
+          <span class="cat">Identity, Package Design</span>
+          <h3>Mates for Living</h3>
+          <p class="structural">Project summary goes here. This line is a structural placeholder, ready for the studio to drop in the real project writeup.</p>
+          <span class="info">Case study <span class="arrow">&rsaquo;</span></span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover cv-clay"><span class="tag">Visual Identity, Marketing</span><span class="mono">SR</span></div>
+        <div class="body">
+          <span class="cat">Visual Identity, Marketing</span>
+          <h3>Santa Rosa Skin</h3>
+          <p class="structural">Project summary goes here. This line is a structural placeholder, ready for the studio to drop in the real project writeup.</p>
+          <span class="info">Case study <span class="arrow">&rsaquo;</span></span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover cv-sand"><span class="tag">Packaging Design</span><span class="mono">GC</span></div>
+        <div class="body">
+          <span class="cat">Packaging Design</span>
+          <h3>Greensky Cosmetics</h3>
+          <p class="structural">Project summary goes here. This line is a structural placeholder, ready for the studio to drop in the real project writeup.</p>
+          <span class="info">Case study <span class="arrow">&rsaquo;</span></span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover cv-ink soon"><span class="tag">Branding, Web Design</span><span class="badge-soon">Coming soon</span><span class="mono">SW</span></div>
+        <div class="body">
+          <span class="cat">Branding, Web Design, Creative Direction</span>
+          <h3>Swoon Cocktail Co</h3>
+          <p class="structural">In progress. A new case study is on the way for this project.</p>
+          <span class="info">Coming soon</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="block about" id="about">
+  <div class="wrap inner">
+    <div class="portrait" aria-label="Portrait placeholder"><span class="sig">Rachel Olsen</span></div>
+    <div>
+      <span class="eyebrow">About the studio</span>
+      <h2>Rachel Olsen is the creative force behind Oh Yeah Creative.</h2>
+      <p class="big">She specializes in branding, art direction, graphic design, and web design tailored to diverse clientele. With a multi-disciplinary approach, the studio transforms conceptual visions into tangible realities, crafting each project with precision to evoke impactful visual identities.</p>
+      <div class="disciplines">
+        <span class="chip">Branding</span>
+        <span class="chip">Art Direction</span>
+        <span class="chip">Graphic Design</span>
+        <span class="chip">Web Design</span>
+        <span class="chip">Packaging</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap inner">
+    <h2>Get in touch. Let us build something.</h2>
+    <div class="side">
+      <a class="mail" href="mailto:rachel@ohyeahcreative.com">rachel@ohyeahcreative.com</a>
+      <div class="socials">
+        <a href="https://www.instagram.com/rachel_is_cool/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/rachelmakesthings/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#top">
+        <span class="mark" style="font-family:var(--serif);font-size:20px;letter-spacing:.18em">( O Y C )</span>
+        <span class="word" style="font-size:13px;letter-spacing:.24em;text-transform:uppercase;font-weight:600">Oh Yeah Creative</span>
+      </a>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.instagram.com/rachel_is_cool/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/rachelmakesthings/" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+    <div class="rule"></div>
+    <div class="bottom">
+      <span>&copy; 2026 Oh Yeah Creative. All rights reserved.</span>
+      <span>Branding, art direction, web, and packaging.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
